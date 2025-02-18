@@ -1,11 +1,20 @@
 package com.pms.proveedores.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 
-@Builder
-public record ProveedorDTO(
-        Long id,
-        String nombre,
-        String descripcion,
-        String regimen
-) {}
+@Getter
+public class ProveedorDTO{
+
+    private Integer id;
+    private String nombre;
+    private String descripcion;
+    private String regimen;
+
+    public ProveedorDTO(String nombreProveedor, String descripcion, String regimen) {
+        this.nombre = nombreProveedor;
+        this.descripcion = descripcion;
+        this.regimen = regimen;
+    }
+}

@@ -33,9 +33,9 @@ public class ProveedorServiceImpl implements ProveedorService {
     @Override
     public Proveedor createProveedor(ProveedorDTO proveedorDTO) {
         Proveedor proveedor = new Proveedor(
-                proveedorDTO.nombre(),
-                proveedorDTO.descripcion(),
-                proveedorDTO.regimen()
+                proveedorDTO.getNombre(),
+                proveedorDTO.getDescripcion(),
+                proveedorDTO.getRegimen()
         );
         return proveedorRepository.save(proveedor);
     }
@@ -44,9 +44,9 @@ public class ProveedorServiceImpl implements ProveedorService {
     public Proveedor updateProveedor(Integer id, ProveedorDTO proveedorDTO) {
         return proveedorRepository.findById(id)
                 .map(proveedor -> {
-                    proveedor.setNombre(proveedorDTO.nombre());
-                    proveedor.setDescripcion(proveedorDTO.descripcion());
-                    proveedor.setRegimen(proveedorDTO.regimen());
+                    proveedor.setNombre(proveedorDTO.getNombre());
+                    proveedor.setDescripcion(proveedorDTO.getDescripcion());
+                    proveedor.setRegimen(proveedorDTO.getRegimen());
                     proveedor.setFechaActualizacion(LocalDate.now());
                     return proveedorRepository.save(proveedor);
                 }).orElseThrow(() -> new RuntimeException("Proveedor not found"));
