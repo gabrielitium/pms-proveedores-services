@@ -39,7 +39,7 @@ class ProveedorServiceTest {
         proveedor.setFechaCreacion(LocalDate.now());
         proveedor.setFechaActualizacion(LocalDate.now());
 
-        proveedorDTO = new ProveedorDTO(1, "Proveedor A", "", "Persona Fisica");
+        proveedorDTO = new ProveedorDTO("Proveedor A", "Proveedor A", "Persona Fisica");
     }
 
     @Test
